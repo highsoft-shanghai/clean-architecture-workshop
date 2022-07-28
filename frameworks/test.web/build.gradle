@@ -1,0 +1,7 @@
+dependencies {
+    implementation libs.spring.boot.web
+    implementation libs.spring.context
+    implementation libs.general.jackson
+    implementation libs.test.spring.boot.test
+    annotationProcessor libs.spring.boot.configuration.processor
+}

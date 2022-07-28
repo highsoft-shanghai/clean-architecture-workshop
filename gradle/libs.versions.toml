@@ -1,0 +1,43 @@
+[versions]
+spring-dependency-management = "1.0.11.RELEASE"
+spring-boot = "2.6.7"
+spring-data-commons = "2.6.4"
+spring = "5.3.19"
+general-guava = "31.1-jre"
+general-commons-lang3 = "3.12.0"
+general-jackson = "2.10.1"
+persistence-h2 = "1.4.200"
+test-junit = "5.8.2"
+test-assertj = "3.21.0"
+test-mockito = "4.0.0"
+test-hamcrest = "2.2"
+test-moco = "1.3.0"
+test-testcontainers = "1.17.1"
+test-asciidoctor = "3.3.2"
+logging-logback = "1.2.11"
+
+[libraries]
+spring-dependency-management-plugin = { module = "io.spring.gradle:dependency-management-plugin", version.ref = "spring-dependency-management" }
+spring-boot-plugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
+spring-boot-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "spring-boot" }
+spring-boot-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "spring-boot" }
+spring-data-commons = { module = "org.springframework.data:spring-data-commons", version.ref = "spring-data-commons" }
+spring-boot-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "spring-boot" }
+spring-boot-data-mongodb = { module = "org.springframework.boot:spring-boot-starter-data-mongodb", version.ref = "spring-boot" }
+spring-boot-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "spring-boot" }
+spring-context = { module = "org.springframework:spring-context", version.ref = "spring" }
+spring-tx = { module = "org.springframework:spring-tx", version.ref = "spring" }
+spring-web = { module = "org.springframework:spring-web", version.ref = "spring" }
+general-guava = { module = "com.google.guava:guava", version.ref = "general-guava" }
+general-jackson = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "general-jackson" }
+general-commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "general-commons-lang3" }
+persistence-h2 = { module = "com.h2database:h2", version.ref = "persistence-h2" }
+test-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "test-junit" }
+test-junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "test-junit" }
+test-junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "test-junit" }
+test-mockito-core = { module = "org.mockito:mockito-core", version.ref = "test-mockito" }
+test-mockito-junit-jupiter = { module = "org.mockito:mockito-junit-jupiter", version.ref = "test-mockito" }
+test-assertj-core = { module = "org.assertj:assertj-core", version.ref = "test-assertj" }
+test-spring-boot-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
+test-testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "test-testcontainers" }
+logging-logback = { module = "ch.qos.logback:logback-classic", version.ref = "logging-logback" }

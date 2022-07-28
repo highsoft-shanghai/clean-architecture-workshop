@@ -1,0 +1,21 @@
+apply from: "$rootDir/gradle/config/scripts/library.gradle"
+
+group = 'workshop.architecture.clean'
+version = '1.0.0'
+
+dependencies {
+    implementation project(":test.web")
+    implementation project(":personnel.gateways")
+    implementation libs.spring.boot.web
+    implementation libs.spring.context
+    implementation libs.persistence.h2
+    implementation libs.spring.boot.data.jpa
+    implementation libs.general.jackson
+    implementation libs.test.spring.boot.test
+    testImplementation libs.test.testcontainers.junit.jupiter
+    annotationProcessor libs.spring.boot.configuration.processor
+}
+
+subprojects {
+    apply from: "$rootDir/gradle/config/scripts/library.gradle"
+}

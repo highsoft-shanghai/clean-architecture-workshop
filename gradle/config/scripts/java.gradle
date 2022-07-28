@@ -1,0 +1,26 @@
+apply plugin: 'java'
+
+sourceCompatibility = "${javaSourceCompatibility}" as String
+targetCompatibility = "${javaTargetCompatibility}" as String
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation libs.general.guava
+    implementation libs.general.commons.lang3
+    testImplementation libs.test.junit.jupiter
+    testImplementation libs.test.junit.jupiter.engine
+    testImplementation libs.test.assertj.core
+    testImplementation libs.test.mockito.junit.jupiter
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << "-parameters"
+}
