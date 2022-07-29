@@ -18,6 +18,10 @@ public final class Salary {
         return new Salary(GlobalId.generate(), employeeId, year, month, amount);
     }
 
+    public static Salary getBy(String employeeId, Integer year, Integer month, Salaries salaries) {
+        return salaries.get(employeeId, year, month);
+    }
+
     private Salary(final String id, final String employeeId, final Integer year, final Integer month, final Double amount) {
         this.id = id;
         this.employeeId = employeeId;
@@ -28,6 +32,16 @@ public final class Salary {
 
     public String id() {
         return id;
+    }
+
+    public String employeeName(Employees employees) {
+        return employees.employeeName(this.employeeId);
+    }
+
+    public interface Employees {
+
+        String employeeName(String id);
+
     }
 
     public String employeeId() {

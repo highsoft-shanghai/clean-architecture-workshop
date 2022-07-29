@@ -1,5 +1,7 @@
 dependencies {
     api project(":salarying.application")
+    implementation project(":personnel.application")
+    implementation project(":personnel.domain")
     implementation libs.spring.boot.actuator
     implementation libs.spring.boot.web
     implementation libs.spring.boot.data.jpa
