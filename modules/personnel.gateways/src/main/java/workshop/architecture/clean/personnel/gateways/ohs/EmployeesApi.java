@@ -9,12 +9,12 @@ import javax.annotation.Resource;
 @RequestMapping("/employees")
 public class EmployeesApi {
 
-    private @Resource GetEmployeeByCurrentUserUseCase getEmployeeByCurrentUserUseCase;
+    private @Resource GetEmployeeByIdUseCase getEmployeeByIdUseCase;
     private @Resource AddEmployeeUseCase addEmployeeUseCase;
 
-    @GetMapping("/current")
-    public EmployeeOutput get() {
-        return getEmployeeByCurrentUserUseCase.execute();
+    @GetMapping("/{id}")
+    public EmployeeOutput get(@PathVariable String id) {
+        return EmployeeOutput.of(getEmployeeByIdUseCase.execute(id));
     }
 
     @PostMapping
