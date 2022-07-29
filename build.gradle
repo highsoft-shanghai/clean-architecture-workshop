@@ -7,6 +7,7 @@ dependencies {
     implementation project(":test.web")
     implementation project(":domain.core")
     implementation project(":personnel.gateways")
+    implementation project(":salarying.gateways")
     implementation libs.spring.boot.web
     implementation libs.spring.context
     implementation libs.persistence.h2

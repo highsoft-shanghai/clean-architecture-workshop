@@ -1,0 +1,5 @@
+dependencies {
+    api project(":salarying.domain")
+    implementation project(":context.core")
+    implementation project(":application.core")
+}

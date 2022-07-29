@@ -1,14 +1,14 @@
 package workshop.architecture.clean.personnel.application;
 
 import workshop.architecture.clean.frameworks.application.core.UseCase;
-import workshop.architecture.clean.personnel.domain.Employee;
+import workshop.architecture.clean.personnel.domain.*;
 
 @UseCase
 public class AddEmployeeUseCase {
 
-    private final Employee.Employees employees;
+    private final Employees employees;
 
-    public AddEmployeeUseCase(Employee.Employees employees) {
+    public AddEmployeeUseCase(Employees employees) {
         this.employees = employees;
     }
 

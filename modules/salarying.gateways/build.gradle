@@ -1,0 +1,8 @@
+dependencies {
+    api project(":salarying.application")
+    implementation libs.spring.boot.actuator
+    implementation libs.spring.boot.web
+    implementation libs.spring.boot.data.jpa
+    implementation libs.persistence.h2
+    testImplementation libs.test.spring.boot.test
+}

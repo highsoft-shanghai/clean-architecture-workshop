@@ -12,7 +12,7 @@ public class EmployeesApi {
     private @Resource GetEmployeeByCurrentUserUseCase getEmployeeByCurrentUserUseCase;
     private @Resource AddEmployeeUseCase addEmployeeUseCase;
 
-    @GetMapping
+    @GetMapping("/current")
     public EmployeeOutput get() {
         return getEmployeeByCurrentUserUseCase.execute();
     }

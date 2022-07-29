@@ -1,9 +1,9 @@
 package workshop.architecture.clean.personnel.gateways.persistence;
 
 import org.springframework.data.repository.Repository;
-import workshop.architecture.clean.personnel.domain.Employee;
+import workshop.architecture.clean.personnel.domain.*;
 
-public interface H2Employees extends Employee.Employees, Repository<H2Employee, String> {
+public interface H2Employees extends Employees, Repository<H2Employee, String> {
 
     @Override
     default Employee get(String id) {
@@ -18,12 +18,5 @@ public interface H2Employees extends Employee.Employees, Repository<H2Employee, 
     }
 
     void save(H2Employee employee);
-
-    @Override
-    default void clear() {
-        this.deleteAll();
-    }
-
-    void deleteAll();
 
 }

@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.testcontainers.shaded.com.google.common.collect.ImmutableMap;
 import workshop.architecture.clean.IntegrationTest;
 import workshop.architecture.clean.frameworks.test.web.JsonResponse;
-import workshop.architecture.clean.personnel.domain.Employee;
+import workshop.architecture.clean.personnel.domain.*;
 
 import javax.annotation.Resource;
 
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AddEmployeeTest extends IntegrationTest {
 
-    private @Resource Employee.Employees employees;
+    private @Resource Employees employees;
 
     @Test
     void should_get_employee_by_id_when_current_employee_login() {

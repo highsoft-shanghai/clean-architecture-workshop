@@ -27,7 +27,7 @@ public final class Employee {
         employees.add(this);
     }
 
-    private Employee(String id, String name, Instant birthday, Instant hireDate) {
+    private Employee(final String id, final String name, final Instant birthday, final Instant hireDate) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
@@ -48,12 +48,6 @@ public final class Employee {
 
     public Instant hireDate() {
         return hireDate;
-    }
-
-    public interface Employees {
-        void add(Employee employee);
-        Employee get(String id);
-        void clear();
     }
 
 }
