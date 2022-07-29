@@ -1,0 +1,12 @@
+eureka:
+  client:
+    enabled: false
+  application:
+    name: clean-architecture-workshop
+  cloud:
+    config:
+      enabled: false
+      profile: ${spring.profiles.active}
+      label: master
+    discovery:
+      enabled: false

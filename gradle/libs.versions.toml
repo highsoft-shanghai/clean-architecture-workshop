@@ -1,13 +1,13 @@
 [versions]
 spring-dependency-management = "1.0.11.RELEASE"
-spring-boot = "2.6.7"
-spring-data-commons = "2.6.4"
-spring = "5.3.19"
-general-guava = "31.1-jre"
-general-commons-lang3 = "3.12.0"
+spring-boot = "2.2.2.RELEASE"
+spring-data-commons = "2.2.3.RELEASE"
+spring = "5.2.0.RELEASE"
+general-guava = "31.0.1-jre"
+general-commons-lang3 = "3.9"
 general-jackson = "2.10.1"
 persistence-h2 = "1.4.200"
-migration-flyway = "8.0.5"
+migration-flyway = "6.0.8"
 test-junit = "5.8.2"
 test-assertj = "3.21.0"
 test-mockito = "4.0.0"
@@ -16,15 +16,17 @@ test-moco = "1.3.0"
 test-testcontainers = "1.17.1"
 test-asciidoctor = "3.3.2"
 logging-logback = "1.2.11"
+spring-cloud = "2.2.2.RELEASE"
+general-gson = "2.8.2"
 
 [libraries]
+eureka = { module = "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client", version.ref = "spring-cloud" }
 spring-dependency-management-plugin = { module = "io.spring.gradle:dependency-management-plugin", version.ref = "spring-dependency-management" }
 spring-boot-plugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
 spring-boot-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "spring-boot" }
 spring-boot-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "spring-boot" }
 spring-data-commons = { module = "org.springframework.data:spring-data-commons", version.ref = "spring-data-commons" }
 spring-boot-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "spring-boot" }
-spring-boot-data-mongodb = { module = "org.springframework.boot:spring-boot-starter-data-mongodb", version.ref = "spring-boot" }
 spring-boot-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "spring-boot" }
 spring-context = { module = "org.springframework:spring-context", version.ref = "spring" }
 spring-tx = { module = "org.springframework:spring-tx", version.ref = "spring" }
@@ -43,3 +45,5 @@ test-assertj-core = { module = "org.assertj:assertj-core", version.ref = "test-a
 test-spring-boot-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
 test-testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "test-testcontainers" }
 logging-logback = { module = "ch.qos.logback:logback-classic", version.ref = "logging-logback" }
+spring-cloud-open-fegin = { module = "org.springframework.cloud:spring-cloud-starter-openfeign", version.ref = "spring-cloud" }
+general-gson = { module = "com.google.code.gson:gson", version.ref = "general-gson" }

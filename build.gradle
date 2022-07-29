@@ -14,10 +14,14 @@ dependencies {
     implementation libs.spring.boot.data.jpa
     implementation libs.migration.flyway
     implementation libs.general.jackson
+    implementation libs.spring.cloud.open.fegin
+    implementation libs.eureka
+    implementation libs.general.gson
     implementation libs.test.spring.boot.test
     testImplementation libs.test.testcontainers.junit.jupiter
     annotationProcessor libs.spring.boot.configuration.processor
 }
+
 
 subprojects {
     apply from: "$rootDir/gradle/config/scripts/library.gradle"
