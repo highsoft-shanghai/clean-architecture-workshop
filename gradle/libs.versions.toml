@@ -7,6 +7,7 @@ general-guava = "31.1-jre"
 general-commons-lang3 = "3.12.0"
 general-jackson = "2.10.1"
 persistence-h2 = "1.4.200"
+migration-flyway = "8.0.5"
 test-junit = "5.8.2"
 test-assertj = "3.21.0"
 test-mockito = "4.0.0"
@@ -27,6 +28,7 @@ spring-boot-data-mongodb = { module = "org.springframework.boot:spring-boot-star
 spring-boot-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "spring-boot" }
 spring-context = { module = "org.springframework:spring-context", version.ref = "spring" }
 spring-tx = { module = "org.springframework:spring-tx", version.ref = "spring" }
+migration-flyway = { module = "org.flywaydb:flyway-core", version.ref = "migration-flyway" }
 spring-web = { module = "org.springframework:spring-web", version.ref = "spring" }
 general-guava = { module = "com.google.guava:guava", version.ref = "general-guava" }
 general-jackson = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "general-jackson" }

@@ -10,6 +10,7 @@ dependencies {
     implementation libs.spring.context
     implementation libs.persistence.h2
     implementation libs.spring.boot.data.jpa
+    implementation libs.migration.flyway
     implementation libs.general.jackson
     implementation libs.test.spring.boot.test
     testImplementation libs.test.testcontainers.junit.jupiter
