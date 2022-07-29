@@ -17,7 +17,7 @@ public interface H2Employees extends Employee.Employees, Repository<H2Employee, 
         this.save(new H2Employee(employee));
     }
 
-    void save(H2Employee account);
+    void save(H2Employee employee);
 
     @Override
     default void clear() {

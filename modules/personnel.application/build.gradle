@@ -1,4 +1,5 @@
 dependencies {
     api project(":personnel.domain")
+    implementation project(":context.core")
     implementation project(":application.core")
 }

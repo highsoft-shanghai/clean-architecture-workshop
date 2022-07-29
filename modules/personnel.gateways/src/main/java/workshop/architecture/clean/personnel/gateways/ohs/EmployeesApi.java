@@ -9,11 +9,11 @@ import javax.annotation.Resource;
 @RequestMapping("/employees")
 public class EmployeesApi {
 
-    private @Resource GetEmployeeByIdUseCase getEmployeeByIdUseCase;
+    private @Resource GetEmployeeByCurrentUserUseCase getEmployeeByCurrentUserUseCase;
 
     @GetMapping
-    public EmployeeOutput get(@RequestParam String id) {
-        return getEmployeeByIdUseCase.execute(id);
+    public EmployeeOutput get() {
+        return getEmployeeByCurrentUserUseCase.execute();
     }
 
 }
