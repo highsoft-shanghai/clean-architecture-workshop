@@ -1,19 +1,33 @@
 package workshop.architecture.clean.personnel.domain;
 
+import workshop.architecture.clean.frameworks.domain.core.GlobalId;
+
 import java.time.Instant;
 
-public class Employee {
+public final class Employee {
 
     private final String id;
     private final String name;
     private final Instant birthday;
     private final Instant hireDate;
 
-    public static Employee restore(final String id, Employees employees) {
+    public static Employee getById(final String id, Employees employees) {
         return employees.get(id);
     }
 
-    public Employee(String id, String name, Instant birthday, Instant hireDate) {
+    public static Employee restore(String id, String name, Instant birthday, Instant hireDate) {
+        return new Employee(id, name, birthday, hireDate);
+    }
+
+    public static Employee create(String name, Instant birthday, Instant hireDate) {
+        return new Employee(GlobalId.generate(), name, birthday, hireDate);
+    }
+
+    public void addIn(Employees employees) {
+        employees.add(this);
+    }
+
+    private Employee(String id, String name, Instant birthday, Instant hireDate) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
@@ -37,13 +51,9 @@ public class Employee {
     }
 
     public interface Employees {
-
         void add(Employee employee);
-
         Employee get(String id);
-
         void clear();
-
     }
 
 }

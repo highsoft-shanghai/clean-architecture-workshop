@@ -5,6 +5,7 @@ version = '1.0.0'
 
 dependencies {
     implementation project(":test.web")
+    implementation project(":domain.core")
     implementation project(":personnel.gateways")
     implementation libs.spring.boot.web
     implementation libs.spring.context

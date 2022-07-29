@@ -25,7 +25,7 @@ public class H2Employee {
     }
 
     public Employee asDomain() {
-        return new Employee(id, name, birthday, hireDate);
+        return Employee.restore(id, name, birthday, hireDate);
     }
 
 }

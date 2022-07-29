@@ -14,7 +14,7 @@ public class GetEmployeeByCurrentUserUseCase {
     }
 
     public EmployeeOutput execute() {
-        return EmployeeOutput.of(Employee.restore(Context.currentUser().id(), employees));
+        return EmployeeOutput.of(Employee.getById(Context.currentUser().id(), employees));
     }
 
 }
