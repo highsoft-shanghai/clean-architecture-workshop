@@ -38,12 +38,6 @@ public final class Salary {
         return employees.employeeName(this.employeeId);
     }
 
-    public interface Employees {
-
-        String employeeName(String id);
-
-    }
-
     public String employeeId() {
         return employeeId;
     }
@@ -58,6 +52,12 @@ public final class Salary {
 
     public Double amount() {
         return amount;
+    }
+
+    public interface Employees {
+
+        String employeeName(String id);
+
     }
 
 }
