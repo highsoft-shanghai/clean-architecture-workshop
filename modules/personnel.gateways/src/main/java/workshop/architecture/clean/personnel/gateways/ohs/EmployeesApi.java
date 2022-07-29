@@ -6,12 +6,14 @@ import workshop.architecture.clean.personnel.application.*;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping("/accounts")
-public class AccountsApi {
-    private @Resource FindAccountByIdUseCase findAccountByIdUseCase;
+@RequestMapping("/employees")
+public class EmployeesApi {
+
+    private @Resource GetEmployeeByIdUseCase getEmployeeByIdUseCase;
 
     @GetMapping
-    public AccountOutput find(@RequestParam String id) {
-        return findAccountByIdUseCase.execute(id);
+    public EmployeeOutput get(@RequestParam String id) {
+        return getEmployeeByIdUseCase.execute(id);
     }
+
 }
