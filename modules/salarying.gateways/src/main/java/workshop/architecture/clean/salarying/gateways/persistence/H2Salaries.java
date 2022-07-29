@@ -3,14 +3,17 @@ package workshop.architecture.clean.salarying.gateways.persistence;
 import org.springframework.data.repository.Repository;
 import workshop.architecture.clean.salarying.domain.*;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public interface H2Salaries extends Salaries, Repository<H2Salary, String> {
 
     @Override
-    default Salary get(String employeeId, Integer year, Integer month) {
-        return getByEmployeeIdAndYearAndMonth(employeeId, year, month).asDomain();
+    default List<Salary> get(Integer year, Integer month) {
+        return getAllByYearAndMonth(year, month).stream().map(H2Salary::asDomain).collect(Collectors.toList());
     }
 
-    H2Salary getByEmployeeIdAndYearAndMonth(String id, Integer year, Integer month);
+    List<H2Salary> getAllByYearAndMonth(Integer year, Integer month);
 
     @Override
     default void add(Salary salary) {

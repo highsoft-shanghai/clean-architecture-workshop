@@ -23,11 +23,11 @@ public class GetSalaryTest extends IntegrationTest {
     void should_get_salary_by_current_user() {
         JsonResponse response = get("/salary-reports?year=2022&month=7");
         assertEquals(HttpStatus.OK, response.statusCode());
-        assertEquals("test-id", response.value("$.id"));
-        assertEquals("张三", response.value("$.employeeName"));
-        assertEquals(2022, response.<Integer>value("$.year"));
-        assertEquals(7, response.<Integer>value("$.month"));
-        assertEquals(10000.0, response.<Double>value("$.amount"));
+        assertEquals("test-id", response.value("$[0].id"));
+        assertEquals("张三", response.value("$[0].employeeName"));
+        assertEquals(2022, response.<Integer>value("$[0].year"));
+        assertEquals(7, response.<Integer>value("$[0].month"));
+        assertEquals(10000.0, response.<Double>value("$[0].amount"));
     }
 
     @AfterEach

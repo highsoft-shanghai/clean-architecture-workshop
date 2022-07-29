@@ -1,8 +1,9 @@
 package workshop.architecture.clean.salarying.application;
 
 import workshop.architecture.clean.frameworks.application.core.UseCase;
-import workshop.architecture.clean.frameworks.context.core.Context;
 import workshop.architecture.clean.salarying.domain.*;
+
+import java.util.List;
 
 @UseCase
 public class SearchSalaryByCurrentUserUseCase {
@@ -15,9 +16,9 @@ public class SearchSalaryByCurrentUserUseCase {
         this.salaries = salaries;
     }
 
-    public SalaryOutput execute(Integer year, Integer month) {
-        Salary current = Salary.getBy(Context.currentUser().id(), year, month, salaries);
-        return SalaryOutput.of(current, employees);
+    public List<SalaryOutput> execute(Integer year, Integer month) {
+        SalaryList current = SalaryList.getBy(year, month, salaries);
+        return SalaryOutputs.of(current, employees).get();
     }
 
 }

@@ -4,15 +4,16 @@ import org.springframework.web.bind.annotation.*;
 import workshop.architecture.clean.salarying.application.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
-@RequestMapping("/salaries")
+@RequestMapping("/salary-reports")
 public class SalariesApi {
 
     private @Resource SearchSalaryByCurrentUserUseCase searchSalaryByCurrentUserUseCase;
 
-    @GetMapping("/current")
-    public SalaryOutput search(@RequestParam Integer year, @RequestParam Integer month) {
+    @GetMapping
+    public List<SalaryOutput> search(@RequestParam Integer year, @RequestParam Integer month) {
         return searchSalaryByCurrentUserUseCase.execute(year, month);
     }
 
