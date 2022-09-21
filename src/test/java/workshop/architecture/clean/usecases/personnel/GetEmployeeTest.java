@@ -15,8 +15,6 @@ public class GetEmployeeTest extends IntegrationTest {
         assertEquals(HttpStatus.OK, response.statusCode());
         assertEquals("zhangsan", response.value("$.id"));
         assertEquals("张三", response.value("$.name"));
-        assertEquals("1990-08-08T15:00:00Z", response.value("$.birthday"));
-        assertEquals("2020-05-07T16:00:00Z", response.value("$.hireDate"));
     }
 
 }

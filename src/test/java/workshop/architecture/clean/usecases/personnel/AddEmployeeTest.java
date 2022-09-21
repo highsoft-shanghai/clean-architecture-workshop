@@ -33,8 +33,6 @@ public class AddEmployeeTest extends IntegrationTest {
         Employee employee = employees.get("test-id");
         assertEquals("test-id", employee.id());
         assertEquals("李四", employee.name());
-        assertEquals(Instant.parse("1990-08-08T15:00:00Z"), employee.birthday());
-        assertEquals(Instant.parse("2020-05-07T16:00:00Z"), employee.hireDate());
     }
 
 }
