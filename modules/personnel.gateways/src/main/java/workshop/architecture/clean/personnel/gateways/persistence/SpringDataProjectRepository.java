@@ -15,4 +15,6 @@ public interface SpringDataProjectRepository extends Repository<H2Project, Strin
 
     void deleteAll();
 
+    H2Project findById(String id);
+
 }

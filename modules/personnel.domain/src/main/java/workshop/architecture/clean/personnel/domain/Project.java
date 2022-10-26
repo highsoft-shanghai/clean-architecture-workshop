@@ -27,4 +27,8 @@ public class Project implements Aggregate {
         return name;
     }
 
+    public Employee employee() {
+        return employee.get();
+    }
+
 }

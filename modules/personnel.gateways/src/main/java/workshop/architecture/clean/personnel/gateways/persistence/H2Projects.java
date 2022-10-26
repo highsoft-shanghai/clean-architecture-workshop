@@ -20,6 +20,11 @@ public class H2Projects implements Projects {
     }
 
     @Override
+    public Project get(String id) {
+        return repository.findById(id).asDomain(employees);
+    }
+
+    @Override
     public void add(Project project) {
         repository.save(new H2Project(project));
     }

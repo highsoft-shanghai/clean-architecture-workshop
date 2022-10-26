@@ -14,10 +14,6 @@ public class EmployeeOutput {
     private final Instant hireDate;
     private final Collection<ProjectOutput> projects;
 
-    public static EmployeeOutput of(Employee employee) {
-        return new EmployeeOutput(employee);
-    }
-
     public EmployeeOutput(Employee employee) {
         this.id = employee.id();
         this.name = employee.name();

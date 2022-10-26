@@ -1,16 +1,19 @@
 package workshop.architecture.clean.personnel.application.project;
 
+import workshop.architecture.clean.personnel.domain.Project;
+
 public class ProjectOutput {
+
     private final String id;
     private final String name;
     private final String employeeId;
     private final String employeeName;
 
-    public ProjectOutput(String id, String name, String employeeId, String employeeName) {
-        this.id = id;
-        this.name = name;
-        this.employeeId = employeeId;
-        this.employeeName = employeeName;
+    public ProjectOutput(Project project) {
+        this.id = project.id();
+        this.name = project.name();
+        this.employeeId = project.employee().id();
+        this.employeeName = project.employee().name();
     }
 
     public String getId() {
