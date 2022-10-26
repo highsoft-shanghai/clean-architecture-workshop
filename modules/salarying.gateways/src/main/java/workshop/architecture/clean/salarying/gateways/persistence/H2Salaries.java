@@ -1,32 +1,30 @@
 package workshop.architecture.clean.salarying.gateways.persistence;
 
-import org.springframework.data.repository.Repository;
+import org.springframework.stereotype.Component;
 import workshop.architecture.clean.salarying.domain.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public interface H2Salaries extends Salaries, Repository<H2Salary, String> {
+@Component
+public class H2Salaries implements Salaries {
+
+    private @Resource SpringDataSalaryRepository repository;
 
     @Override
-    default List<Salary> get(Integer year, Integer month) {
-        return getAllByYearAndMonth(year, month).stream().map(H2Salary::asDomain).collect(Collectors.toList());
+    public List<Salary> get(Integer year, Integer month) {
+        return repository.getAllByYearAndMonth(year, month).stream().map(H2Salary::asDomain).collect(Collectors.toList());
     }
-
-    List<H2Salary> getAllByYearAndMonth(Integer year, Integer month);
 
     @Override
-    default void add(Salary salary) {
-        this.save(new H2Salary(salary));
+    public void add(Salary salary) {
+        repository.save(new H2Salary(salary));
     }
-
-    void save(H2Salary employee);
 
     @Override
-    default void clear() {
-        this.deleteAll();
+    public void clear() {
+        repository.deleteAll();
     }
-
-    void deleteAll();
 
 }
