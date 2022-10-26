@@ -1,5 +1,6 @@
 package workshop.architecture.clean.salarying.gateways.persistence;
 
+import workshop.architecture.clean.personnel.domain.Employees;
 import workshop.architecture.clean.salarying.domain.Salary;
 
 import javax.persistence.*;
@@ -25,8 +26,8 @@ public class H2Salary {
         this.amount = salary.amount();
     }
 
-    public Salary asDomain() {
-        return Salary.restore(id, employeeId, year, month, amount);
+    public Salary asDomain(Employees employees) {
+        return Salary.restore(id, new H2Salaries.SalaryEmployee(employeeId, employees), year, month, amount);
     }
 
 }

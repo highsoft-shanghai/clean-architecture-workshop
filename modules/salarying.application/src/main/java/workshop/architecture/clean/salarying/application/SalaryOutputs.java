@@ -9,8 +9,8 @@ public class SalaryOutputs {
 
     private final List<SalaryOutput> outputs;
 
-    public static SalaryOutputs of(SalaryList salaries, Salary.Employees employees) {
-        return new SalaryOutputs(salaries.stream().map(o -> SalaryOutput.of(o, employees)).collect(Collectors.toList()));
+    public static SalaryOutputs of(SalaryList salaries) {
+        return new SalaryOutputs(salaries.stream().map(SalaryOutput::of).collect(Collectors.toList()));
     }
 
     public SalaryOutputs(final List<SalaryOutput> outputs) {

@@ -10,13 +10,13 @@ public final class SalaryOutput {
     private final Integer month;
     private final Double amount;
 
-    public static SalaryOutput of(Salary salary, Salary.Employees employees) {
-        return new SalaryOutput(salary, employees);
+    public static SalaryOutput of(Salary salary) {
+        return new SalaryOutput(salary);
     }
 
-    private SalaryOutput(Salary salary, Salary.Employees employees) {
+    private SalaryOutput(Salary salary) {
         this.id = salary.id();
-        this.employeeName = salary.employeeName(employees);
+        this.employeeName = salary.employee().name();
         this.year = salary.year();
         this.month = salary.month();
         this.amount = salary.amount();
