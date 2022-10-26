@@ -1,4 +1,4 @@
-package workshop.architecture.clean.personnel.application;
+package workshop.architecture.clean.personnel.application.employee;
 
 import workshop.architecture.clean.frameworks.application.core.UseCase;
 import workshop.architecture.clean.personnel.domain.*;

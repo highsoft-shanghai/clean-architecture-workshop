@@ -1,9 +1,6 @@
 package workshop.architecture.clean.personnel.domain;
 
-public interface Employees {
+import workshop.architecture.clean.frameworks.domain.core.archtype.Aggregates;
 
-    void add(Employee employee);
-
-    Employee get(String id);
-
+public interface Employees extends Aggregates<Employee> {
 }

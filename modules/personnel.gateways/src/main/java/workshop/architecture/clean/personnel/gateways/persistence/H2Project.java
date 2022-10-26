@@ -1,6 +1,6 @@
 package workshop.architecture.clean.personnel.gateways.persistence;
 
-import workshop.architecture.clean.personnel.domain.Project;
+import workshop.architecture.clean.personnel.domain.*;
 
 import javax.persistence.*;
 
@@ -21,8 +21,8 @@ public class H2Project {
         this.name = project.name();
     }
 
-    public Project asDomain() {
-        return new Project(id, employeeId, name);
+    public Project asDomain(Employees employees) {
+        return new Project(id, new H2Projects.ProjectEmployees(employeeId, employees), name);
     }
 
 }

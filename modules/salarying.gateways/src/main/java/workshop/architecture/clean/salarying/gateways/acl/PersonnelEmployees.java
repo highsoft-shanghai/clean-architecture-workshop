@@ -1,7 +1,7 @@
 package workshop.architecture.clean.salarying.gateways.acl;
 
 import org.springframework.stereotype.Component;
-import workshop.architecture.clean.personnel.application.GetEmployeeByIdUseCase;
+import workshop.architecture.clean.personnel.application.employee.GetEmployeeByIdUseCase;
 import workshop.architecture.clean.salarying.domain.Salary;
 
 import javax.annotation.Resource;

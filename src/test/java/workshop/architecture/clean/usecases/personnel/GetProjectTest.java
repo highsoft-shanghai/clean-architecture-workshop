@@ -10,28 +10,25 @@ import workshop.architecture.clean.personnel.domain.*;
 import javax.annotation.Resource;
 import java.time.Instant;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class GetEmployeeTest extends IntegrationTest {
+public class GetProjectTest extends IntegrationTest {
 
     private @Resource Projects projects;
 
     @BeforeEach
     void setUp() {
         projects.add(new Project("1", new AlreadyHasOne<>(Employee.restore("zhangsan", "张三", Instant.now(), Instant.now(), null)), "project1"));
-        projects.add(new Project("2", new AlreadyHasOne<>(Employee.restore("zhangsan", "张三", Instant.now(), Instant.now(), null)), "project2"));
     }
 
     @Test
-    void should_get_employee_by_id_when_current_employee_login() {
-        JsonResponse response = get("/employees/zhangsan");
+    void should_get_project_with_employee_id_and_name_details() {
+        JsonResponse response = get("/project/1");
         assertEquals(HttpStatus.OK, response.statusCode());
-        assertEquals("zhangsan", response.value("$.id"));
-        assertEquals("张三", response.value("$.name"));
-        assertEquals(2, response.jsonValues("$.projects").length);
-        assertThat(response.jsonValues("$.projects[*].id")).containsExactly("1", "2");
-        assertThat(response.jsonValues("$.projects[*].name")).containsExactly("project1", "project2");
+        assertEquals("1", response.value("$.id"));
+        assertEquals("project1", response.value("$.name"));
+        assertEquals("zhangsan", response.value("$.employeeId"));
+        assertEquals("张三", response.value("$.employeeName"));
     }
 
     @AfterEach

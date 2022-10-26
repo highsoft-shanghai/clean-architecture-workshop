@@ -1,16 +1,16 @@
 package workshop.architecture.clean.personnel.domain;
 
-import workshop.architecture.clean.frameworks.domain.core.archtype.Aggregate;
+import workshop.architecture.clean.frameworks.domain.core.archtype.*;
 
 public class Project implements Aggregate {
 
     private final String id;
-    private final String employeeId;
+    private final One<Employee> employee;
     private final String name;
 
-    public Project(String id, String employeeId, String name) {
+    public Project(String id, One<Employee> employee, String name) {
         this.id = id;
-        this.employeeId = employeeId;
+        this.employee = employee;
         this.name = name;
     }
 
@@ -20,7 +20,7 @@ public class Project implements Aggregate {
     }
 
     public String employeeId() {
-        return employeeId;
+        return employee.id();
     }
 
     public String name() {

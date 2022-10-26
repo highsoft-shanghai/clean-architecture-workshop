@@ -25,6 +25,10 @@ public class H2Employee {
         this.hireDate = employee.hireDate();
     }
 
+    public String id() {
+        return id;
+    }
+
     public Employee asDomain(Many<Project> projects) {
         return Employee.restore(id, name, birthday, hireDate, projects);
     }

@@ -1,7 +1,7 @@
 package workshop.architecture.clean.personnel.gateways.ohs;
 
 import org.springframework.web.bind.annotation.*;
-import workshop.architecture.clean.personnel.application.*;
+import workshop.architecture.clean.personnel.application.employee.*;
 
 import javax.annotation.Resource;
 

@@ -6,6 +6,7 @@ import workshop.architecture.clean.personnel.domain.*;
 
 import javax.annotation.Resource;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Component
 public class H2Employees implements Employees {
@@ -19,8 +20,33 @@ public class H2Employees implements Employees {
     }
 
     @Override
+    public Optional<Employee> getOptional(String id) {
+        return Optional.ofNullable(repository.getById(id)).map(o -> o.asDomain(new EmployeeProjects(id, projects)));
+    }
+
+    @Override
     public void add(Employee employee) {
         repository.save(new H2Employee(employee));
+    }
+
+    @Override
+    public void addAll(Collection<Employee> employees) {
+        repository.save(employees.stream().map(H2Employee::new).collect(Collectors.toList()));
+    }
+
+    @Override
+    public void remove(String id) {
+        repository.removeById(id);
+    }
+
+    @Override
+    public void remove(Collection<String> ids) {
+        repository.removeByIdIn(ids);
+    }
+
+    @Override
+    public List<Employee> list(Collection<String> ids) {
+        return repository.getByIdIn(ids).parallel().map(o -> o.asDomain(new EmployeeProjects(o.id(), projects))).collect(Collectors.toList());
     }
 
     static class EmployeeProjects implements Many<Project> {
