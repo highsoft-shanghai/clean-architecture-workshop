@@ -1,3 +1,3 @@
 dependencies {
-    implementation project(":domain.core")
+    api project(":domain.core")
 }

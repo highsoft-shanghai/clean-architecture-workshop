@@ -12,8 +12,8 @@ public class GetEmployeeByIdUseCase {
         this.employees = employees;
     }
 
-    public Employee execute(String id) {
-        return employees.get(id);
+    public EmployeeOutput execute(String id) {
+        return EmployeeOutput.of(employees.get(id));
     }
 
 }

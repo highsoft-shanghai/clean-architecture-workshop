@@ -13,7 +13,7 @@ public class PersonnelEmployees implements Salary.Employees {
 
     @Override
     public String employeeName(String id) {
-        return getEmployeeByIdUseCase.execute(id).name();
+        return getEmployeeByIdUseCase.execute(id).getName();
     }
 
 }

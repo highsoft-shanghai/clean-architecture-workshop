@@ -14,7 +14,7 @@ public class EmployeesApi {
 
     @GetMapping("/{id}")
     public EmployeeOutput get(@PathVariable String id) {
-        return EmployeeOutput.of(getEmployeeByIdUseCase.execute(id));
+        return getEmployeeByIdUseCase.execute(id);
     }
 
     @PostMapping
