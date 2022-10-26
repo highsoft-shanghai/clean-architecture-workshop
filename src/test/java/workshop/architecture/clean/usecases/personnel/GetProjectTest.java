@@ -23,7 +23,7 @@ public class GetProjectTest extends IntegrationTest {
 
     @Test
     void should_get_project_with_employee_id_and_name_details() {
-        JsonResponse response = get("/project/1");
+        JsonResponse response = get("/projects/1");
         assertEquals(HttpStatus.OK, response.statusCode());
         assertEquals("1", response.value("$.id"));
         assertEquals("project1", response.value("$.name"));
