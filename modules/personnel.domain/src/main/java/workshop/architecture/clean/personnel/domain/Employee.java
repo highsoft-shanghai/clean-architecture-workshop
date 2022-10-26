@@ -11,20 +11,12 @@ public final class Employee {
     private final Instant birthday;
     private final Instant hireDate;
 
-    public static Employee getById(final String id, Employees employees) {
-        return employees.get(id);
-    }
-
     public static Employee restore(String id, String name, Instant birthday, Instant hireDate) {
         return new Employee(id, name, birthday, hireDate);
     }
 
     public static Employee create(String name, Instant birthday, Instant hireDate) {
         return new Employee(GlobalId.generate(), name, birthday, hireDate);
-    }
-
-    public void addIn(Employees employees) {
-        employees.add(this);
     }
 
     private Employee(final String id, final String name, final Instant birthday, final Instant hireDate) {

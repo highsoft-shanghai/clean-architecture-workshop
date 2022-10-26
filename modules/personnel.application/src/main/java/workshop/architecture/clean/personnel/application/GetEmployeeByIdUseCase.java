@@ -13,7 +13,7 @@ public class GetEmployeeByIdUseCase {
     }
 
     public Employee execute(String id) {
-        return Employee.getById(id, employees);
+        return employees.get(id);
     }
 
 }

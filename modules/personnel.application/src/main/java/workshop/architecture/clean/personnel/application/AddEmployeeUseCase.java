@@ -13,7 +13,7 @@ public class AddEmployeeUseCase {
     }
 
     public void execute(EmployeeInput input) {
-        input.asDomain().addIn(employees);
+        employees.add(input.asDomain());
     }
 
 }
