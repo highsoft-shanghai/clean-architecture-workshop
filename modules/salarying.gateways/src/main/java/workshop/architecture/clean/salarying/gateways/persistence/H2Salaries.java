@@ -1,7 +1,6 @@
 package workshop.architecture.clean.salarying.gateways.persistence;
 
 import org.springframework.stereotype.Component;
-import workshop.architecture.clean.frameworks.domain.core.archtype.One;
 import workshop.architecture.clean.personnel.domain.Employees;
 import workshop.architecture.clean.salarying.domain.*;
 
@@ -30,9 +29,9 @@ public class H2Salaries implements Salaries {
         repository.deleteAll();
     }
 
-    static class SalaryEmployee implements One<Employee> {
+    static class SalaryEmployee implements Salary.Employee {
 
-        private String employeeId;
+        private final String employeeId;
         private final Employees employees;
 
         public SalaryEmployee(String employeeId, Employees employees) {
@@ -42,25 +41,13 @@ public class H2Salaries implements Salaries {
 
         @Override
         public Employee get() {
-            return convertEmployee(employees.get(employeeId));
+            workshop.architecture.clean.personnel.domain.Employee employee = employees.get(employeeId);
+            return new Employee(employee.id(), employee.name());
         }
 
         @Override
         public String id() {
             return employeeId;
-        }
-
-        @Override
-        public void add(Employee aggregate) {
-        }
-
-        @Override
-        public void callOff() {
-            this.employeeId = null;
-        }
-
-        private Employee convertEmployee(workshop.architecture.clean.personnel.domain.Employee employee) {
-            return new Employee(employee.id(), employee.name());
         }
 
     }

@@ -3,13 +3,10 @@ package workshop.architecture.clean.usecases.salarying;
 import org.junit.jupiter.api.*;
 import org.springframework.http.HttpStatus;
 import workshop.architecture.clean.IntegrationTest;
-import workshop.architecture.clean.frameworks.domain.core.archtype.AlreadyHasOne;
 import workshop.architecture.clean.frameworks.test.web.JsonResponse;
 import workshop.architecture.clean.salarying.domain.*;
 
 import javax.annotation.Resource;
-
-import java.time.Instant;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,7 +16,18 @@ public class GetSalaryTest extends IntegrationTest {
 
     @BeforeEach
     void setUp() {
-        salaries.add(Salary.create(new AlreadyHasOne<>(new Employee("zhangsan", "张三")), 2022, 7, 10000.0));
+        Salary.Employee employee = new Salary.Employee() {
+            @Override
+            public String id() {
+                return "zhangsan";
+            }
+
+            @Override
+            public Employee get() {
+                return new Employee("zhangsan", "张三");
+            }
+        };
+        salaries.add(Salary.create(employee, 2022, 7, 10000.0));
     }
 
     @Test
