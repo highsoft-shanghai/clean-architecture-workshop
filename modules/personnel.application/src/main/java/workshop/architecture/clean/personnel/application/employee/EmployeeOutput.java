@@ -3,7 +3,7 @@ package workshop.architecture.clean.personnel.application.employee;
 import workshop.architecture.clean.personnel.domain.Employee;
 
 import java.time.Instant;
-import java.util.Collection;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class EmployeeOutput {
@@ -12,7 +12,7 @@ public class EmployeeOutput {
     private final String name;
     private final Instant birthday;
     private final Instant hireDate;
-    private final Collection<ProjectOutput> projects;
+    private final List<ProjectOutput> projects;
 
     public EmployeeOutput(Employee employee) {
         this.id = employee.id();

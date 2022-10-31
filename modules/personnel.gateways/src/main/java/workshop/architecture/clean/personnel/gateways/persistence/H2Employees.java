@@ -1,7 +1,6 @@
 package workshop.architecture.clean.personnel.gateways.persistence;
 
 import org.springframework.stereotype.Component;
-import workshop.architecture.clean.frameworks.domain.core.archtype.Many;
 import workshop.architecture.clean.personnel.domain.*;
 
 import javax.annotation.Resource;
@@ -49,7 +48,7 @@ public class H2Employees implements Employees {
         return repository.getByIdIn(ids).parallel().map(o -> o.asDomain(new EmployeeProjects(o.id(), projects))).collect(Collectors.toList());
     }
 
-    static class EmployeeProjects implements Many<Project> {
+    static class EmployeeProjects implements Employee.Projects {
 
         private final String employeeId;
         private final Projects projects;
@@ -60,12 +59,7 @@ public class H2Employees implements Employees {
         }
 
         @Override
-        public Optional<Project> findOne(String id) {
-            return projects.findByIdAndEmployeeId(id, employeeId);
-        }
-
-        @Override
-        public List<Project> getAll() {
+        public List<Project> all() {
             return projects.findByEmployee(employeeId);
         }
 

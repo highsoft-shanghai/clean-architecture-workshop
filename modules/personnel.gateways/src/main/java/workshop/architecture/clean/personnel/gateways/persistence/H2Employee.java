@@ -1,7 +1,6 @@
 package workshop.architecture.clean.personnel.gateways.persistence;
 
-import workshop.architecture.clean.frameworks.domain.core.archtype.Many;
-import workshop.architecture.clean.personnel.domain.*;
+import workshop.architecture.clean.personnel.domain.Employee;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -29,7 +28,7 @@ public class H2Employee {
         return id;
     }
 
-    public Employee asDomain(Many<Project> projects) {
+    public Employee asDomain(Employee.Projects projects) {
         return Employee.restore(id, name, birthday, hireDate, projects);
     }
 
