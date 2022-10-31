@@ -3,7 +3,6 @@ package workshop.architecture.clean.usecases.personnel;
 import org.junit.jupiter.api.*;
 import org.springframework.http.HttpStatus;
 import workshop.architecture.clean.IntegrationTest;
-import workshop.architecture.clean.frameworks.domain.core.archtype.AlreadyHasOne;
 import workshop.architecture.clean.frameworks.test.web.JsonResponse;
 import workshop.architecture.clean.personnel.domain.*;
 
@@ -19,8 +18,19 @@ public class GetEmployeeTest extends IntegrationTest {
 
     @BeforeEach
     void setUp() {
-        projects.add(new Project("1", new AlreadyHasOne<>(Employee.restore("zhangsan", "张三", Instant.now(), Instant.now(), null)), "project1"));
-        projects.add(new Project("2", new AlreadyHasOne<>(Employee.restore("zhangsan", "张三", Instant.now(), Instant.now(), null)), "project2"));
+        Project.Employee employee = new Project.Employee() {
+            @Override
+            public String id() {
+                return "zhangsan";
+            }
+
+            @Override
+            public Employee get() {
+                return Employee.restore("zhangsan", "张三", Instant.now(), Instant.now(), null);
+            }
+        };
+        projects.add(new Project("1", employee, "project1"));
+        projects.add(new Project("2", employee, "project2"));
     }
 
     @Test
