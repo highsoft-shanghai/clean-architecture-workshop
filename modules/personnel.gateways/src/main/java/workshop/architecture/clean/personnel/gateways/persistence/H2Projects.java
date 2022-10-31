@@ -39,10 +39,22 @@ public class H2Projects implements Projects {
         repository.deleteAll();
     }
 
-    static class ProjectEmployees extends NotHasOne<Employee> implements One<Employee> {
+    static class ProjectEmployees implements Project.Employee {
+
+        private final NotHasOne<Employee> impl;
 
         public ProjectEmployees(String id, Aggregates<Employee> aggregates) {
-            super(id, aggregates);
+            this.impl = new NotHasOne<>(id, aggregates);
+        }
+
+        @Override
+        public String id() {
+            return impl.id();
+        }
+
+        @Override
+        public Employee get() {
+            return impl.get();
         }
 
     }
